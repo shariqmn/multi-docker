@@ -5,21 +5,21 @@ services:
   - docker
 
 before_install:
-    - docker build -t shariqmn/react-test -f ./client/Dockerfile.dev ./client
+    - docker build -t shariqm/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-    - docker run -e CI=true shariqmn/react-test npm test
+    - docker run -e CI=true shariqm/react-test npm test
 
 after_success:
-    - docker build -t shariqmn/multi-client ./client
-    - docker build -t shariqmn/multi-nginx ./nginx
-    - docker build -t shariqmn/multi-server ./server
-    - docker build -t shariqmn/multi-worker ./worker
+    - docker build -t shariqm/multi-client ./client
+    - docker build -t shariqm/multi-nginx ./nginx
+    - docker build -t shariqm/multi-server ./server
+    - docker build -t shariqm/multi-worker ./worker
     # Log in to the docker CLI
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
     # Take those images and push those to docker hub
-    - docker push shariqmn/multi-client
-    - docker push shariqmn/multi-nginx
-    - docker push shariqmn/multi-server
-    - docker push shariqmn/multi-worker
+    - docker push shariqm/multi-client
+    - docker push shariqm/multi-nginx
+    - docker push shariqm/multi-server
+    - docker push shariqm/multi-worker
 
