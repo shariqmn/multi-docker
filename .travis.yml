@@ -10,7 +10,8 @@ before_install:
 script:
     - docker run -e CI=true shariqm/react-test npm test
 
-after_success:
+
+    after_success:
     - docker build -t shariqm/multi-client ./client
     - docker build -t shariqm/multi-nginx ./nginx
     - docker build -t shariqm/multi-server ./server
@@ -22,6 +23,7 @@ after_success:
     - docker push shariqm/multi-nginx
     - docker push shariqm/multi-server
     - docker push shariqm/multi-worker
+
 deploy:
     edge: true
     provider: elasticbeanstalk
