@@ -11,7 +11,7 @@ script:
     - docker run -e CI=true shariqm/react-test npm test
 
 
-    after_success:
+after_success:
     - docker build -t shariqm/multi-client ./client
     - docker build -t shariqm/multi-nginx ./nginx
     - docker build -t shariqm/multi-server ./server
@@ -34,5 +34,4 @@ deploy:
     on:
         branch: master
     access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: 
-        secure: $AWS_SECRET_KEY
+    secret_access_key: $AWS_SECRET_KEY
