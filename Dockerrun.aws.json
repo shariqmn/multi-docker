@@ -23,13 +23,6 @@
             "memory": 128
         },
         {
-            "name":"client",
-            "image": "shariqm/multi-client",
-            "hostname": "client",
-            "essential": false,
-            "memory": 128
-        },
-        {
             "name":"nginx",
             "image": "shariqm/multi-nginx",
             "hostname": "nginx",
